@@ -1,6 +1,6 @@
 # pretty-plan
 
-Convert Markdown files to beautifully styled PDFs with Typora-inspired typography, syntax-highlighted code blocks, and polished formatting.
+Convert Markdown files to beautifully styled PDFs with clean typography, syntax-highlighted code blocks, and polished formatting.
 
 ```
 input.md → marked → highlight.js → HTML → Puppeteer → output.pdf
