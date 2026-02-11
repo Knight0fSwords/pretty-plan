@@ -1,6 +1,6 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/common';
 
 marked.use({ gfm: true, breaks: false });
 
@@ -11,7 +11,10 @@ marked.use(
       if (lang && hljs.getLanguage(lang)) {
         return hljs.highlight(code, { language: lang }).value;
       }
-      return code;
+      return code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
     },
   })
 );

@@ -13,12 +13,22 @@ const themeCss = readFileSync(join(__dirname, 'styles', 'theme.css'), 'utf-8');
 const hljsDir = dirname(require.resolve('highlight.js/package.json'));
 const highlightCss = readFileSync(join(hljsDir, 'styles', 'github.css'), 'utf-8');
 
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export function renderHtml(body, title) {
+  const safeTitle = escapeHtml(title);
   return `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>${title}</title>
+  <title>${safeTitle}</title>
   <style>${highlightCss}</style>
   <style>${themeCss}</style>
 </head>

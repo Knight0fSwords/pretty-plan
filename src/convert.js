@@ -56,6 +56,10 @@ export async function convert(file, options) {
   console.log(`Written to ${outputPath}`);
 
   if (options.open !== false) {
-    await open(outputPath);
+    try {
+      await open(outputPath);
+    } catch {
+      console.error('Warning: Could not open PDF automatically. Open it manually at the path above.');
+    }
   }
 }
