@@ -1,0 +1,19 @@
+{
+  "name": "pretty-plan",
+  "version": "1.0.0",
+  "description": "Convert Markdown to beautifully styled PDFs",
+  "type": "module",
+  "bin": {
+    "pretty-plan": "./bin/pretty-plan.js"
+  },
+  "files": ["bin/", "src/", "commands/"],
+  "engines": { "node": ">=20.0.0" },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "highlight.js": "^11.9.0",
+    "marked": "^17.0.0",
+    "marked-highlight": "^2.2.0",
+    "open": "^10.0.0",
+    "puppeteer": "^24.0.0"
+  }
+}
